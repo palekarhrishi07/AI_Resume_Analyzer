@@ -1,0 +1,120 @@
+/* General Styling */
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ✅ Fix Heading Visibility */
+
+.heading-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ✅ Fixed Heading Alignment */
+
+.main-heading {
+  display: inline-block;
+  font-size: 2.8rem;
+  /* ✅ Increased size */
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  padding: 20px 40px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Fix Container Width */
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+  /* ✅ Increased size */
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Form Inputs */
+
+.form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+}
+
+/* Submit Button */
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Fix Result Box */
+
+.result-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* ✅ Responsive Design */
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  .main-heading {
+    font-size: 2rem;
+    /* ✅ Adjust for mobile */
+    padding: 15px;
+  }
+}

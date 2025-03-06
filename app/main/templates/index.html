@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% block content %}
+<!-- ✅ Properly Placed Heading -->
+<div class="heading-container">
+  <h1 class="main-heading">AI Resume Analyzer</h1>
+</div>
+
+<div class="container mt-4">
+  <p class="text-muted text-center">
+    Upload your resume and get instant feedback
+  </p>
+
+  <div class="form-container">
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+
+      <div class="form-group">
+        <label class="form-label">{{ form.resume.label }}</label>
+        {{ form.resume(class="form-control", accept=".pdf,.doc,.docx") }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ form.job_title.label }}</label>
+        {{ form.job_title(class="form-control") }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ form.job_description.label }}</label>
+        {{ form.job_description(class="form-control") }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ form.job_responsibilities.label }}</label>
+        {{ form.job_responsibilities(class="form-control") }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ form.job_experience.label }}</label>
+        {{ form.job_experience(class="form-control") }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ form.job_skills.label }}</label>
+        {{ form.job_skills(class="form-control") }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ form.job_education.label }}</label>
+        {{ form.job_education(class="form-control") }}
+      </div>
+
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary btn-lg w-100") }}
+      </div>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <div class="alert-container mt-4">
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %} {% if scores %}
+    <div class="result-box mt-4">
+      <h3>Analysis Results</h3>
+      <p><strong>Overall Score:</strong> {{ scores['total_score'] }}%</p>
+      <p><strong>Resume Structure:</strong> {{ scores['structure_score'] }}%</p>
+      <p><strong>Skills Match:</strong> {{ scores['skills_score'] }}%</p>
+      <p>
+        <strong>Experience Match:</strong> {{ scores['experience_score'] }}%
+      </p>
+      <p><strong>Education Match:</strong> {{ scores['education_score'] }}%</p>
+
+      <div class="feedback">
+        <strong>Issues Identified:</strong>
+        <p>{{ feedback }}</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
